@@ -1,0 +1,50 @@
+<?php
+session_start();
+session_unset();
+session_destroy();
+?>
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<title>ออกจากระบบ</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    background: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<script>
+Swal.fire({
+    icon: 'success',
+    title: 'ออกจากระบบเรียบร้อย',
+    text: 'กำลังพาไปยังหน้าเข้าสู่ระบบ...',
+    timer: 2500,
+    timerProgressBar: true,
+    showConfirmButton: true,
+    confirmButtonText: 'ไปยังหน้าเข้าสู่ระบบ',
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    willClose: () => {
+        window.location.href = 'login.php';
+    }
+}).then((result) => {
+    if (result.isConfirmed) {
+        window.location.href = 'login.php';
+    }
+});
+</script>
+
+</body>
+</html>
